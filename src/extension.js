@@ -1,4 +1,7 @@
 const vscode = require("vscode");
+const messenger = require("messenger");
+
+const client = messenger.createSpeaker(2041);
 
 function getEditor() {
   const editor = vscode.window.activeTextEditor;
@@ -20,7 +23,8 @@ function activate(context) {
     "extension.transferToSnippetStore",
     function() {
       const editor = getEditor();
-      console.log(getSelectedText(editor));
+      const code = getSelectedText(editor);
+      client.request("transferCode", { code: code });
     }
   );
 
