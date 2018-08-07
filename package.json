@@ -11,7 +11,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.transferToSnippetStore"
+    "onCommand:extension.transferToSnippetStore",
+    "onCommand:extension.importSnippetFromSnippetStore"
   ],
   "main": "./src/extension",
   "contributes": {
@@ -19,6 +20,10 @@
       {
         "command": "extension.transferToSnippetStore",
         "title": "Transfer selection to Snippet Store"
+      },
+      {
+        "command": "extension.importSnippetFromSnippetStore",
+        "title": "Import snippets from Snippet Store"
       }
     ],
     "menus": {
@@ -26,6 +31,10 @@
         {
           "when": "editorHasSelection",
           "command": "extension.transferToSnippetStore",
+          "group": "navigation"
+        },
+        {
+          "command": "extension.importSnippetFromSnippetStore",
           "group": "navigation"
         }
       ]

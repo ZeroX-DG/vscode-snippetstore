@@ -19,7 +19,7 @@ function getSelectedText(editor) {
 }
 
 function activate(context) {
-  let transferCommand = vscode.commands.registerCommand(
+  let transferSnippetCommand = vscode.commands.registerCommand(
     "extension.transferToSnippetStore",
     function() {
       const editor = getEditor();
@@ -28,7 +28,41 @@ function activate(context) {
     }
   );
 
-  context.subscriptions.push(transferCommand);
+  let importSnippetCommand = vscode.commands.registerCommand(
+    "extension.importSnippetFromSnippetStore",
+    function() {
+      const editor = getEditor();
+      client.request("getSnippets", {}, snippets => {
+        snippets = snippets.snippets;
+        const snippetNames = snippets.map(snippet => snippet.name);
+        vscode.window.showQuickPick(snippetNames).then(name => {
+          if (name) {
+            const snippet = snippets.find(snippet => snippet.name === name);
+            const position = editor.selection.active;
+            if (!snippet.files) {
+              editor.edit(edit => {
+                edit.insert(position, snippet.value);
+              });
+            } else {
+              const fileNames = snippet.files.map(file => file.name);
+              vscode.window.showQuickPick(fileNames).then(fileName => {
+                if (fileName) {
+                  const file = snippet.files.find(
+                    file => file.name === fileName
+                  );
+                  editor.edit(edit => {
+                    edit.insert(position, file.value);
+                  });
+                }
+              });
+            }
+          }
+        });
+      });
+    }
+  );
+
+  context.subscriptions.push(transferSnippetCommand, importSnippetCommand);
 }
 exports.activate = activate;
 
