@@ -38,10 +38,10 @@ function activate(context) {
         vscode.window.showQuickPick(snippetNames).then(name => {
           if (name) {
             const snippet = snippets.find(snippet => snippet.name === name);
-            const position = editor.selection.active;
+            const position = editor.selection;
             if (!snippet.files) {
               editor.edit(edit => {
-                edit.insert(position, snippet.value);
+                edit.replace(position, snippet.value);
               });
             } else {
               const fileNames = snippet.files.map(file => file.name);
@@ -51,7 +51,7 @@ function activate(context) {
                     file => file.name === fileName
                   );
                   editor.edit(edit => {
-                    edit.insert(position, file.value);
+                    edit.replace(position, file.value);
                   });
                 }
               });
