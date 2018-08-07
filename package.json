@@ -20,7 +20,16 @@
         "command": "extension.transferToSnippetStore",
         "title": "Transfer selection to Snippet Store"
       }
-    ]
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "extension.transferToSnippetStore",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
