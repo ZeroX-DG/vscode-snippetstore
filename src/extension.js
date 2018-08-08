@@ -37,9 +37,13 @@ function activate(context) {
       const editor = getEditor();
       client.request("getSnippets", {}, snippets => {
         snippets = snippets.snippets;
-        const snippetNames = snippets.map(snippet => snippet.name);
+        const snippetNames = snippets.map(
+          snippet =>
+            (!snippet.files ? "$(file-code)" : "$(diff)") + ` ${snippet.name}`
+        );
         vscode.window.showQuickPick(snippetNames).then(name => {
           if (name) {
+            name = name.replace("$(file-code) ", "").replace("$(diff) ", "");
             const snippet = snippets.find(snippet => snippet.name === name);
             const position = editor.selection;
             if (!snippet.files) {
@@ -47,9 +51,12 @@ function activate(context) {
                 edit.replace(position, snippet.value);
               });
             } else {
-              const fileNames = snippet.files.map(file => file.name);
+              const fileNames = snippet.files.map(
+                file => "$(file-code)" + ` ${file.name}`
+              );
               vscode.window.showQuickPick(fileNames).then(fileName => {
                 if (fileName) {
+                  fileName = fileName.replace("$(file-code) ", "");
                   const file = snippet.files.find(
                     file => file.name === fileName
                   );
