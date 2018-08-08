@@ -24,7 +24,10 @@ function activate(context) {
     function() {
       const editor = getEditor();
       const code = getSelectedText(editor);
-      client.request("transferCode", { code: code });
+      const fileName = editor.document.fileName;
+      const dot = fileName.lastIndexOf(".");
+      const ext = dot > -1 && fileName.substring(dot + 1, fileName.length);
+      client.request("transferCode", { code, ext });
     }
   );
 
