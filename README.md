@@ -8,7 +8,7 @@ Type `ctrl + shift + p` or on Mac `cmd + shift + p` to launch command palette an
 
 ## Requirements
 
-SnippetStore version at least v0.2.6
+[Snippet Store](https://github.com/ZeroX-DG/SnippetStore) version at least v0.2.6
 
 ## Usage
 
