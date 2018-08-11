@@ -6,6 +6,10 @@
 
 Type `ctrl + shift + p` or on Mac `cmd + shift + p` to launch command palette and choose Extensions: Install Extension. Search this package and install.
 
+## Requirements
+
+SnippetStore version at least v0.2.6
+
 ## Usage
 
 To transfer your code snippet to Snippet Store (Snippet Store must be running at this time):
