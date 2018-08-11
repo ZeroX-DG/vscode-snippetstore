@@ -1,65 +1,30 @@
-# vscode-snippetstore README
+# SnippetStore
 
-This is the README for your extension "vscode-snippetstore". After writing up a brief description, we recommend including the following sections.
+[Snippet Store](https://github.com/ZeroX-DG/SnippetStore) integration in Visual Studio Code
 
-## Features
+## Installation
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Type `ctrl + shift + p` or on Mac `cmd + shift + p` to launch command palette and choose Extensions: Install Extension. Search this package and install.
 
-For example if there is an image subfolder under your extension project workspace:
+## Usage
 
-\!\[feature X\]\(images/feature-x.png\)
+To transfer your code snippet to Snippet Store (Snippet Store must be running at this time):
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- Select your code snippet in vscode
+- Type shortcut `ctrl + shift + t` or on Mac `cmd + shift + t` or find `Transfer selection to Snippet Store` in vscode right-click menu
+- Snippet Store will pop up and allow you to input other info for the snippet
+- Hit the save button or keyboard shortcut `ctrl + s` to save
 
-## Requirements
+![](assets/transfer.gif)
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+To import snippet code from Snippet Store to vscode (Snippet Store must be running at this time):
 
-## Extension Settings
+- Type shortcut `ctrl + shift + i` or on Mac `cmd + shift + i` or find `Import snippets from Snippet Store` in vscode right-click menu
+- A vscode quick pick window will popup and allow you to pick your snippet
+- After select your snippet, your snippet will be import into vscode at the cursor position
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+![](assets/import.gif)
 
-For example:
+## Author & Maintainer
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- [Hung Nguyen](https://github.com/ZeroX-DG) ([twitter](https://twitter.com/?lang=vi))

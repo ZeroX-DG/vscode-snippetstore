@@ -66,5 +66,12 @@
   },
   "dependencies": {
     "messenger": "0.0.9"
-  }
+  },
+  "keywords": [
+    "snippet",
+    "snippet store",
+    "snippetstore",
+    "store"
+  ],
+  "icon": "./assets/icon512.png"
 }
