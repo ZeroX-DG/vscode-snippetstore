@@ -2,7 +2,7 @@
   "name": "vscode-snippetstore",
   "displayName": "Snippet Store",
   "description": "Snippet Store integration in Visual Studio Code",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publisher": "ZeroX-DG",
   "engines": {
     "vscode": "^1.25.0"
